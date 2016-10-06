@@ -53,6 +53,9 @@ RUN \
     chown -R ${USER}:${GROUP} /data &&\
     chown -R ${USER}:${GROUP} /var/log/activemq
 
+# Copy the Kubernetes discovery agent
+COPY assets/activemq-k8s-discovery-1.0-SNAPSHOT-jar-with-dependencies.jar /opt/activemq/lib/
+
 # Expose all port
 EXPOSE 8161
 EXPOSE 61616

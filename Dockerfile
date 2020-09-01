@@ -1,5 +1,5 @@
-FROM alpine:3.6
-MAINTAINER Sebastien LANGOUREAUX (linuxworkgroup@hotmail.com)
+FROM openjdk:11.0-jre
+MAINTAINER Ralph Kühnert <ralph.kuehnert@hilti.com>
 
 # Application settings
 ENV CONFD_PREFIX_KEY="/activemq" \
@@ -54,7 +54,7 @@ RUN \
     chown -R ${USER}:${GROUP} /var/log/activemq
 
 # Copy the Kubernetes discovery agent
-COPY assets/activemq-k8s-discovery-1.0-SNAPSHOT-jar-with-dependencies.jar /opt/activemq/lib/
+COPY assets/activemq-k8s-discovery-5.15.13-jar-with-dependencies.jar /opt/activemq/lib/
 
 # Expose all port
 EXPOSE 8161
